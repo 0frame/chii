@@ -2,7 +2,7 @@
 
 ## Development Setup
 
-[Node.js](https://nodejs.org/en/) and [depot_tools](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) is needed for the development of chii.
+[Node.js](https://nodejs.org/en/) and [depot_tools](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) is needed for the development of chii. In addition, you'll need the [ninja](https://formulae.brew.sh/formula/ninja) build tool as this is no longer included with depot_tools.
 
 After cloning the repo, run:
 
@@ -31,3 +31,6 @@ npm run ci
 * devtools: Chrome DevTools frontend.
 * server: Server side source code.
 * src: Client side source code, including target.js.
+
+
+##

@@ -1,4 +1,5 @@
 const Koa = require('koa');
+const auth = require('koa-basic-auth');
 const https = require('https');
 
 const router = require('./middle/router');
@@ -18,6 +19,8 @@ async function start({
   sslCert,
   sslKey,
   basePath = '/',
+  user,
+  pass
 } = {}) {
   domain = domain || 'localhost:' + port;
   if (!endWith(basePath, '/')) {
@@ -26,6 +29,10 @@ async function start({
 
   const app = new Koa();
   const wss = new WebSocketServer();
+
+  if (user && pass) {
+    app.use(auth({ name: user, pass: pass }));
+  }
 
   app.use(compress()).use(router(wss.channelManager, domain, cdn, basePath));
 
